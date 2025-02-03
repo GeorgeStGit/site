@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", type="text/css", href="/stylesheets/style.css")
+    script(type='text/javascript', src='/javascripts/home.js')
+  body
+    block content
+    header
+        img(src="images/name.png", alt="...", class="name-image")
+        a( href="/home",class="box",class="fill-div")
+            p(class="home") Home
+    h1(class = "title") Learning Game Development
+      p My First Game: Wintry Survival
+        p(class = "small") I developed during highschool while learning unity for the first time. <br> It featured crafting and basic survival features such as hunger, health, temperature. And A Yeti Boss.
+      img(src="images/wintry.png", alt="...", class="images")
+      p My Second Game: Necromon
+      p(class = "small") Working with a team during university we developed a funky game that was based on a popular genre at the time "auto battlers". <br> The visual style wasn't the best with a lack of artists...
+      img(src="images/mon.png", alt="...", class="images") 
+      <a href="https://cosc360.otago.ac.nz/games/2022/Necromon">It's Playable Online Here!</a>
+    footer="Contact"
+      a(class="box")
+        p 
+        p Email georgstt@gmail.com

@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", type="text/css", href="/stylesheets/style.css")
+    script(type='text/javascript', src='/javascripts/home.js')
+  body
+    block content
+    header
+        //video(src="video/name.mp4" id="v0",  tabindex="0", autobuffer preload)
+        img(src="images/name.png", alt="...", class="name-image")
+    h1(class = "title")
+      div(class=("gridlayout"))
+        div
+          a( href="/program",class="box",class="fill-div")
+            p Programmer
+              div(class="video-container")
+                video(src="video/code.webm", autoplay muted loop)
+        div
+          a( href="/gamedev",class="box",class="fill-div")
+            p Game Developer
+              div(class="video-container")
+                video(src="video/game.webm", autoplay muted loop)
+        div
+          a( href="/gamedev",class="box",class="fill-div")
+            p Competitve Dota Player
+              div(class="video-container")
+                video(src="video/immo.webm", autoplay muted loop)
+    footer="Contact"
+      a(class="box")
+        p 
+        p Email georgstt@gmail.com
