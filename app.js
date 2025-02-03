@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 
-app.get('/home', (request, response) => {
+app.get('/', (request, response) => {
   response.render('home')
   response.route
 });
