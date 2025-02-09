@@ -6,47 +6,40 @@ var logger = require('morgan');
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, '/public/')));
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static('public'));
 
+// Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (request, response) => {
-  response.render('home')
-  response.route
+// Serve HTML files for each route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
-app.get('/program', (request, response) => {
-  response.render('program')
-  response.route
+app.get('/program', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'program.html'));
 });
 
-app.get('/gamedev', (request, response) => {
-  response.render('gamedev')
-  response.route
+app.get('/gamedev', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gamedev.html'));
 });
 
-app.get('/dota', (request, response) => {
-  response.render('dota')
-  response.route
+app.get('/dota', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dota.html'));
 });
 
-// default route
-app.get('*', (request, response) => {
-  response.status(404)
-  response.render('404-not-found')
+// Default 404 route
+app.use((req, res, next) => {
+  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
 module.exports = app;
+  
