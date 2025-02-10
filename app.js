@@ -11,35 +11,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Serve static files from the "public" folder
+// Serve static files (CSS, JS, images, HTML) from "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve HTML files for each route
+// Default route serves index.html (no need to manually specify)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/program', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'program.html'));
-});
-
-app.get('/gamedev', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'gamedev.html'));
-});
-
-app.get('/dota', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dota.html'));
+  res.sendFile(path.join(__dirname, 'index.html')); // Since index.html is in root now
 });
 
 // Default 404 route
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
 module.exports = app;
-  
